@@ -5,7 +5,8 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application to ... (fill in later)
+* Hi my name is Chunhang. I am excited about this project because this is my first ever project.
 	
 ## Technologies
 Technologies used for this project:
