@@ -5,16 +5,11 @@
 - [Contents](#content)
 
 ## General Info
-<<<<<<< HEAD
-This browser based web application to ... (fill in later)
-* Hi my name is Chunhang. I am excited about this project because this is my first ever project.
-=======
 
 This browser based web application to
-* Hi my name is Peter. I'm excited about this project because it is my first project ever.
-* Hi my name is Chunhang. I am excited about this project because this is my first ever project.
-* Hi my name is Kevin. I am excited about this project because this is my first ever project.
->>>>>>> 756af2f68b1aa32d9303eb38165a6a7979cb7b0b
+* Hi my name is Peter. I'm excited about this project because it is my first project ever!
+* Hi my name is Chunhang. I am excited about this project because this is my first ever project!
+* Hi my name is Kevin. I am excited about this project because this is my first ever project!
 	
 ## Technologies
 
