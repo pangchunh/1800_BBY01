@@ -7,8 +7,9 @@
 ## General Info
 
 This browser based web application to
-Hi my name is Peter. I'm excited about this project because it is my first project ever.
-
+* Hi my name is Peter. I'm excited about this project because it is my first project ever.
+* Hi my name is Chunhang. I am excited about this project because this is my first ever project.
+	
 ## Technologies
 
 Technologies used for this project:
