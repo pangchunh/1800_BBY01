@@ -1,21 +1,16 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My BCIT Project</title>
+    <title>main.html</title>
     <meta name="comp1800 template" content="my bcit Hiking App project">
-
-    <!-- Optional styles and scripts of your own -->
-    <link type="text/css" href="styles/my_style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <!-- Boostrap JS CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
     
     <!-- Firebase 8 related CSS CDN -->
     
@@ -25,16 +20,81 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     
     <!-- Link to the api keys for your Firebase project -->
-
-
     <script src="/scripts/firebaseAPI.js"></script> 
+    
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
+    <link href="./styles/my_style.css" rel="stylesheet">
 
+    <style>
+      
+    </style>
   </head>
 
   <body>
-    Hello, this is the landing page after user login.
+    <!-- Container -->
+    <div class="container-sm">
 
-    <script>src="firebaseAPI.js"</script>
+      
+   <!-- Bottom Navbar -->
+   <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h5 class="text-white h4">Collapsed content</h5>
+      <span class="text-muted">Toggleable via the navbar brand.</span>
+    </div>
+  </div>
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./main.html">
+        <i class="fas fa-home"></i>
+      </a>
+      <a class="navbar-brand" href="./gamemode.html">
+        <i class="fas fa-gamepad"></i>
+      </a>
+      <a class="navbar-brand" href="./timemode.html">
+        <i class="fas fa-stopwatch"></i>
+      </a>
+      <a class="navbar-brand" href="./record.html">
+        <i class="fas fa-chart-bar"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+    </div>
+  </nav>
+
+<!-- Navbar end -->
+    <figure class="text-center">
+
+      <h1 class="display-3">Welcome, tell us what you want.</h1>
+    </figure>
+
+
+    <div class="card bg-light mx-auto text-center" style="width: 15rem;">
+      <img src="./images/funmode.png" class="card-img-top" alt="funmode">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Want to relieve stress in a fun way? Check out our fun mode and practice a variety of meditation exercise</p>
+        <a href="./gamemode.html" class="btn btn-primary">Fun Mode</a>
+      </div>
+
+    </div>
+    <br/>
+    <div class="card bg-light mx-auto text-center" style="width: 15rem;">
+      <img src="./images/timemode.png" class="card-img-top" alt="timemode">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Want to relieve stress in a short period of time? Check out our time mode and complete a variety of meditation exercise in the time frame you want!</p>
+        <a href="./gamemode.html" class="btn btn-primary">Time Mode</a>
+      </div>
+
+    </div>
+
+    </div>
+
+    <script src="firebaseAPI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 
 </html>
