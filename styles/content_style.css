@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 40% 40%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.title {
+    display:inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+
+
+}
+
+
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.text {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    
+}
