@@ -3,14 +3,23 @@
     padding: 0;
 }
 
+body{
+    background-color: #bbf0f3;
+    background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
+}
 
 
-
+.container {
+    height: 100%;
+}
 
 
 
 .center {
     display:block;
+}
+.logo {
+    display:none;
     background-color: rgba(0,0,0,.5); 
     margin-left: auto;
     margin-right: auto;

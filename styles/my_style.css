@@ -5,6 +5,8 @@ body {
 .container-sm {
   padding-top: 1em;
   padding-bottom: 85px;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 * {
@@ -19,6 +21,15 @@ body {
   margin-right: auto;
   background: gray;
 
+}
+
+.checked {
+  color: orange;
+}
+
+.card {
+  width: 100%;
+  border: none;
 }
 
 
