@@ -137,3 +137,39 @@ function writeWebcamData() {
             })
     })
 }
+
+
+
+function insertContent() {
+    db.collection("Videos").doc("Video10").get()
+    .then(function(doc) {
+        if (doc.exists) {
+            console.log(doc.data());
+            let videoTitle =doc.data().title;
+            let videoDetails = doc.data().details;
+            let videoId = "https://www.youtube.com/embed/" + doc.data().video_ID;
+            
+            console.log(videoTitle);
+            console.log(videoDetails);
+            console.log(videoId);
+            document.getElementById("videoTitleHere").innerHTML = videoTitle;
+            document.getElementById("detailsHere").innerHTML = videoDetails;
+            document.getElementById("contentExercise").src = videoId;
+        } else {
+            console.log("No such document!");
+        }
+
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
+    })
+}
+        
+
+insertContent();
+
+function insertDescription() {
+    if (Videos) {
+        console.log(Videos);
+        currentVideo = db.collection("Videos").doc(user.uid);
+    }
+}
