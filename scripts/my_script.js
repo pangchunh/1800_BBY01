@@ -149,9 +149,9 @@ function insertContent() {
             let videoDetails = doc.data().details;
             let videoId = "https://www.youtube.com/embed/" + doc.data().video_ID;
             
-            console.log(videoTitle);
-            console.log(videoDetails);
-            console.log(videoId);
+            //console.log(videoTitle);
+            //console.log(videoDetails);
+            //console.log(videoId);
             document.getElementById("videoTitleHere").innerHTML = videoTitle;
             document.getElementById("detailsHere").innerHTML = videoDetails;
             document.getElementById("contentExercise").src = videoId;
@@ -165,11 +165,48 @@ function insertContent() {
 }
         
 
-insertContent();
+//insertContent();
 
-function insertDescription() {
-    if (Videos) {
-        console.log(Videos);
-        currentVideo = db.collection("Videos").doc(user.uid);
+
+function displayVideos() {
+    let videoCardTemplate = document.getElementById("videoCardTemplate");
+    let videoCardGroup = document.getElementById("videoCardGroup");
+    db.collection("Videos").get()
+    .then(allVideos => {
+        console.log(allVideos.size);
+        allVideos.forEach(doc => {
+            if (doc.exists) {
+                //console.log(doc.data());
+                
+                let videoTitle =doc.data().title;
+                let videoDetails = doc.data().details;
+                let videoId = doc.data().video_ID;
+                let videoLink = "https://www.youtube.com/embed/" + videoId;
+                let videoThumbnail = "http://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
+                let videoLength = doc.data().length;
+                let videoScore = doc.data().score;
+                let videoReview = doc.data().review
+                
+                let testVideoCard = videoCardTemplate.content.cloneNode(true);
+                testVideoCard.querySelector('h5').innerHTML = videoTitle;
+                console.log(testVideoCard.querySelector('h5').innerHTML);
+                testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
+                console.log(testVideoCard.querySelector('.card-text').innerHTML);
+                testVideoCard.querySelector('small').innerHTML = videoLength + " minutes";
+                testVideoCard.getElementById('thumbnail').src = videoThumbnail;
+                console.log(testVideoCard.getElementById('thumbnail').src);
+                videoCardGroup.appendChild(testVideoCard);
+               
+                
+                //console.log(videoDetails);
+                //menu.getElementsByTagName('h4').innerHTML = videoTitle;
+                //document.getElementById("detailsHere").innerHTML = videoDetails;
+                //document.getElementById("contentExercise").src = videoId;
+            } else {
+                console.log("No such document!");
+            }
+        })
+    })
     }
-}
+
+    displayVideos();
