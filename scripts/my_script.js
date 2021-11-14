@@ -138,42 +138,11 @@ function writeWebcamData() {
     })
 }
 
-
-
-function insertContent() {
-    db.collection("Videos").doc("Video10").get()
-    .then(function(doc) {
-        if (doc.exists) {
-            console.log(doc.data());
-            let videoTitle =doc.data().title;
-            let videoDetails = doc.data().details;
-            let videoId = "https://www.youtube.com/embed/" + doc.data().video_ID;
-            
-            //console.log(videoTitle);
-            //console.log(videoDetails);
-            //console.log(videoId);
-            document.getElementById("videoTitleHere").innerHTML = videoTitle;
-            document.getElementById("detailsHere").innerHTML = videoDetails;
-            document.getElementById("contentExercise").src = videoId;
-        } else {
-            console.log("No such document!");
-        }
-
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    })
-}
-        
-
-//insertContent();
-
-
 function displayVideos() {
     let videoCardTemplate = document.getElementById("videoCardTemplate");
     let videoCardGroup = document.getElementById("videoCardGroup");
     db.collection("Videos").get()
     .then(allVideos => {
-        console.log(allVideos.size);
         allVideos.forEach(doc => {
             if (doc.exists) {
                 //console.log(doc.data());
@@ -195,8 +164,16 @@ function displayVideos() {
                 testVideoCard.querySelector('small').innerHTML = videoLength + " minutes";
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 console.log(testVideoCard.getElementById('thumbnail').src);
+                //testVideoCard.getElementById('button').innerHTML = 'hello';
+                testVideoCard.querySelector('a').onclick = function setVideoId() {
+                localStorage.setItem ('videoID', doc.data().video_ID); 
+
+                }
+                
+                //    localStorage.setItem ('vidId', videoId);
+                //}
                 videoCardGroup.appendChild(testVideoCard);
-               
+                 
                 
                 //console.log(videoDetails);
                 //menu.getElementsByTagName('h4').innerHTML = videoTitle;
@@ -205,8 +182,67 @@ function displayVideos() {
             } else {
                 console.log("No such document!");
             }
+    
         })
     })
+}
+
+    
+
+    function insertContent() {
+        let videoId = localStorage.getItem("videoID");
+        console.log(videoId);
+        db.collection("Videos").where("video_ID", "==", videoId).get()
+        .then(queryVideo => {
+            size = queryVideo.size;
+            Videos = queryVideo.docs;
+        
+        if (size = 1) {
+            let thisVideo = Videos[0].data();
+            let videoTitle =thisVideo.title;
+            let videoDetails = thisVideo.details;
+            let videoId = "https://www.youtube.com/embed/" + thisVideo.video_ID;
+            document.getElementById("videoTitleHere").innerHTML = videoTitle;
+            document.getElementById("detailsHere").innerHTML = videoDetails;
+            document.getElementById("contentExercise").src = videoId;
+        } else {
+            console.log("Query has more than one data")
+        }
+
+    }).catch(function(error) {
+            console.log("Error getting document:", error);
+        })
     }
 
-    displayVideos();
+
+    /*
+    function(doc) {
+        if (doc.exists) {
+            console.log(doc.data());
+            let videoTitle =doc.data().title;
+            let videoDetails = doc.data().details;
+            let videoId = "https://www.youtube.com/embed/" + doc.data().video_ID;
+            
+            document.getElementById("videoTitleHere").innerHTML = videoTitle;
+            document.getElementById("detailsHere").innerHTML = videoDetails;
+            document.getElementById("contentExercise").src = videoId;
+            //console.log(videoTitle);
+            //console.log(videoDetails);
+            //console.log(videoId);
+            
+        } else {
+            console.log("No such document!");
+        }
+
+    }
+    */
+
+
+
+
+
+
+
+   
+    
+    insertContent();
