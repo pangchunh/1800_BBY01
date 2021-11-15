@@ -91,10 +91,10 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Welcome to the gamemode</h1>
+          <h1 class="fw-light">Welcome to the fun mode</h1>
           <hr class="border border-2 border-warning">
-          <p class="lead text-muted">Select your combo for today. There will be three random meditation exercise with
-            length of around 3 to 5 minutes. Enjoy a variety of meditation exercise. You may get unexpected exercise
+          <p class="lead text-muted"> You will be giving a random meditation exercise with
+            length of around 1 to 7 minutes. Enjoy a variety of meditation exercise. You may get unexpected exercise
             along the way!</p>
           <p>
             <a href="timemode.html" class="btn btn-info my-2">Change to timemode</a>
@@ -108,141 +108,23 @@
     background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
       <div class="container">
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
+          <button type="button" class="btn btn-info" onclick="randomVideo()"><p class ="h4 text-center">Refresh <i class="fas fa-sync-alt h4"></i></p></button>
+
           <div class="col">
             <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <img class="bd-placeholder-img card-img-top" style="width:100%; height:100%" src="./images/random.png"
+                focusable="false">
                 <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
+                <rect width="100%" height="100%" fill="#55595c" />
               </svg>
 
               <div class="card-body bg-warning">
-                <p class="card-text">Combo A contains three exercise which focus on mindfulness.</p>
+                <h5 class="text-light">What's your random exercise about?</h5>
+                <p class="card-text" id="randomDescription">description</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body bg-info">
-                <p class="card-text">Combo B contains three exercise which focus on mindfulness.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body bg-warning">
-                <p class="card-text">Combo C contains three exercise which focus on [*].</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body bg-info">
-                <p class="card-text">Combo D contains three exercise which focus on [*].</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body bg-warning">
-                <p class="card-text">Combo E contains three exercise which focus on [*].</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card shadow-sm">
-              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-                role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                  dy=".3em">Thumbnail</text>
-              </svg>
-
-              <div class="card-body bg-info">
-                <p class="card-text">Combo F contains three exercise which focus on [*].</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted">[9 mins]</small>
+                  <small class="text-muted"id="videoLength">9 mins</small>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
@@ -253,12 +135,10 @@
             </div>
           </div>
         </div>
-
-
-
-
       </div>
-    </div>
+      </div>
+  </div>
+  
 
       
       <!-- Link to the api keys for your Firebase project -->
@@ -267,8 +147,9 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
       <script src="scripts/my_script.js"></script>
-      <script>displayVideos();
-        </script>
+      <script>
+      randomVideo();
+      </script>
 
 </body>
 

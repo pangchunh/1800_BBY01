@@ -59,7 +59,7 @@ function displayVideos() {
     .then(allVideos => {
         allVideos.forEach(doc => {
             if (doc.exists) {
-                //console.log(doc.data());
+                console.log(doc.data());
                 
                 let videoTitle =doc.data().title;
                 let videoDetails = doc.data().details;
@@ -149,3 +149,21 @@ function displayVideos() {
     }
     */
 
+    function randomVideo() {
+        db.collection("Videos").get().then(doc => {
+        size = doc.size;
+        Videos = doc.docs;
+        n = Math.floor(Math.random() * 17);
+        randomVid = Videos[n].data();
+        //randomTitle = randomVid.title;
+        //randomVidId = "https://www.youtube.com/embed/" + randomVid.video_ID;
+        //randomVidDetail = randomVid.details;
+        //console.log(randomVidDetail);
+        //$("#videoTitleHere").text(randomTitle);
+        //$("#contentExercise").attr("src", randomVidId);
+        //$("#detailsHere").text(randomVidDetail);
+        localStorage.setItem('videoID', randomVid.video_ID); 
+        $("#randomDescription").text(randomVid.details);
+        $("#videoLength").text(randomVid.length + " minutes");
+    })
+    }
