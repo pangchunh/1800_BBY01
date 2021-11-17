@@ -36,170 +36,182 @@
 </head>
 
 <body>
+  <!-- Container -->
+  <div class="container-sm">
+
+
+    <!-- Bottom Navbar -->
     <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-warning h1">Serenity</h4>
-          <div class="text-light">
-            Hello <span id="navDisplay3" class="text-warning"></span>, what can we help you?
-          </div>
-          <br/>
-            <div class="row align-items-start">
-              <div class="col align-self-center">
-                <a class="text-light" href="./index.html">
-                  <span class="text-light h3">Logout</span>
+      <div class="bg-dark p-4">
+        <h4 class="text-warning h1">Serenity</h4>
+        <div class="text-light">
+          Hello <span id="navDisplay5" class="text-warning"></span>, what can we help you?
+        </div>
+        <br />
+        <div class="row align-items-start">
+          <div class="col align-self-center">
+            <a class="text-light" href="./index.html">
+              <span class="text-light h3"">Logout</span>
                 </a>
               </div>
-              <div class="col text-end">
+              <div class=" col text-end">
                 <span class="text-light h3">
                   My profile
-                  <a href="./profile.html">
-                  <i class="far fa-user-circle"></i>
+                  <a href="./user.html">
+                    <i class="far fa-user-circle"></i>
                   </a>
                 </span>
-              </div>
-            </div>
-  
+          </div>
         </div>
+
       </div>
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./main.html">
-            <i class="fas fa-home"></i>
-          </a>
-          <a class="navbar-brand" href="./gamemode.html">
-            <i class="fas fa-gamepad"></i>
-          </a>
-          <a class="navbar-brand" href="./timemode.html">
-            <i class="fas fa-stopwatch"></i>
-          </a>
-          <a class="navbar-brand" href="./record.html">
-            <i class="fas fa-chart-bar"></i>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-        </div>
-      </nav>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./main.html">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="navbar-brand" href="./gamemode.html">
+          <i class="fas fa-gamepad"></i>
+        </a>
+        <a class="navbar-brand" href="./timemode.html">
+          <i class="fas fa-stopwatch"></i>
+        </a>
+        <a class="navbar-brand" href="./record.html">
+          <i class="fas fa-chart-bar"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class = "container">
-        <br>
-        <br>
+      </div>
+    </nav>
 
-        <div class="bg-info text-secondary px-4 py-5 text-center" style="background-color: #bbf0f3;
+    <!-- Navbar end -->
+
+
+    <div class="container">
+      <br>
+      <br>
+
+      <div class="bg-info text-secondary px-4 py-5 text-center" style="background-color: #bbf0f3;
         background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
-            <h1>User Profile </h1>
-                <form>
-                <fieldset class="mb-3" id="personalInfoFields" disabled>
-                    <div class="form-group">
-                        <label >Name</label>
-                        <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                    </div>
-                    <div class="form-group">
-                        <label >Country</label>
-                        <input type="text" id="countryInput" class="form-control" placeholder="Enter your country">
-                    </div>
-                    <div class="form-group">
-                        <label >City</label>
-                        <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
-                    </div>
-                    <div class="form-group">
-                        <label >School</label>
-                        <input type="text" id="schoolInput" class="form-control" placeholder="Enter your city">
-                    </div>
-                </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+        <h1>User Profile </h1>
+        <form>
+          <fieldset class="mb-3" id="personalInfoFields" disabled>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
             </div>
-            </form>
-            
-          
-        </div>
-        
-        <script>
-            function populateInfo() {
-            firebase.auth().onAuthStateChanged(user => {
-                // Check if user is signed in:
-                if (user) {
+            <div class="form-group">
+              <label>Country</label>
+              <input type="text" id="countryInput" class="form-control" placeholder="Enter your country">
+            </div>
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+            </div>
+            <div class="form-group">
+              <label>School</label>
+              <input type="text" id="schoolInput" class="form-control" placeholder="Enter your city">
+            </div>
+          </fieldset>
+          <div class="d-flex justify-content-end mt-5">
+            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+            <span style="width: 10px"></span>
+            <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
+          </div>
+        </form>
 
-                    //go to the correct user document by referencing to the user uid
-                    currentUser = db.collection("users").doc(user.uid)
-                    //get the document for current user.
-                    currentUser.get()
-                        .then(userDoc => {
-                            //get the data fields of the user
-                            var userName = userDoc.data().name;
-                            var userSchool = userDoc.data().school;
-                            var userCountry = userDoc.data().country;
-                            var userCity = userDoc.data().city;
 
-                            //if the data fields are not empty, then write them in to the form.
-                            if (userName != null) {
-                                document.getElementById("nameInput").value = userName;
-                            }
-                            if (userSchool != null) {
-                                document.getElementById("schoolInput").value = userSchool;
-                            }
-                            if (userCity != null) {
-                                document.getElementById("cityInput").value = userCity;
-                            }
-                            if (userCountry != null) {
-                                document.getElementbyId("countryInput").value = userCountry;
-                            }
-                        })
-                } else {
-                    // No user is signed in.
-                    console.log ("No user is signed in");
+      </div>
+    </div>
+  </div>
+
+    <script>
+      function populateInfo() {
+        firebase.auth().onAuthStateChanged(user => {
+          // Check if user is signed in:
+          if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid)
+            //get the document for current user.
+            currentUser.get()
+              .then(userDoc => {
+                //get the data fields of the user
+                var userName = userDoc.data().name;
+                var userSchool = userDoc.data().school;
+                var userCountry = userDoc.data().country;
+                var userCity = userDoc.data().city;
+
+                //if the data fields are not empty, then write them in to the form.
+                if (userName != null) {
+                  document.getElementById("nameInput").value = userName;
                 }
-            });
-        }
+                if (userSchool != null) {
+                  document.getElementById("schoolInput").value = userSchool;
+                }
+                if (userCity != null) {
+                  document.getElementById("cityInput").value = userCity;
+                }
+                if (userCountry != null) {
+                  document.getElementbyId("countryInput").value = userCountry;
+                }
+              })
+          } else {
+            // No user is signed in.
+            console.log("No user is signed in");
+          }
+        });
+      }
 
-                //call the function to run it 
-                populateInfo();
-
-
-            var currentUser 
-
-            function editUserInfo() {
-                //Enable the form fields
-                document.getElementById('personalInfoFields').disabled = false;
-            }
-
-            function saveUserInfo() {
-                userName = document.getElementById('nameInput').value;       
-                userCountry = document.getElementById('countryInput').value;     
-                userCity = document.getElementById('cityInput').value; 
-                userSchool = document.getElementById('schoolInput').value;
-
-                currentUser.update({
-                    name: userName,
-                    country: userCountry,
-                    city: userCity,
-                    school: userSchool
-                })
-                .then(() => {
-                    console.log("Document successfully updated!");
-                })
-
-            }
+      //call the function to run it 
+      populateInfo();
 
 
+      var currentUser
 
-          
+      function editUserInfo() {
+        //Enable the form fields
+        document.getElementById('personalInfoFields').disabled = false;
+      }
+
+      function saveUserInfo() {
+        userName = document.getElementById('nameInput').value;
+        userCountry = document.getElementById('countryInput').value;
+        userCity = document.getElementById('cityInput').value;
+        userSchool = document.getElementById('schoolInput').value;
+
+        currentUser.update({
+          name: userName,
+          country: userCountry,
+          city: userCity,
+          school: userSchool
+        })
+          .then(() => {
+            console.log("Document successfully updated!");
+          })
+
+      }
 
 
-        
 
-        </script>
-        
-        
-    
-      
+
+
+
+
+
+    </script>
+
+
+
+
 
 
 
 </body>
+
+</html>
