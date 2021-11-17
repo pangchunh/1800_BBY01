@@ -167,3 +167,9 @@ function displayVideos() {
         $("#videoLength").text(randomVid.length + " minutes");
     })
     }
+
+
+
+  
+
+    

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>main.html</title>
+    <meta name="comp1800 template" content="my bcit Hiking App project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Boostrap JS CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <!-- Firebase 8 related CSS CDN -->
+    
+    <!-- Firebase 8 related JS CDN -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    
+    <!-- Link to the api keys for your Firebase project -->
+    <script src="/scripts/firebaseAPI.js"></script> 
+    
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
+    <link href="./styles/my_style.css" rel="stylesheet">
+
+    <style>
+      
+    </style>
+  </head>
+
+  <body>
+    <!-- Container -->
+    <div class="container-sm">
+
+
+    
+
+      
+    <!-- Bottom Navbar -->
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h4 class="text-warning h1">Serenity</h4>
+        <div class="text-light">
+          Hello <span id="navDisplay5" class="text-warning"></span>, what can we help you?
+        </div>
+        <br/>
+          <div class="row align-items-start">
+            <div class="col align-self-center">
+              <a class="text-light" href="./index.html">
+                <span class="text-light h3">Logout</span>
+              </a>
+            </div>
+            <div class="col text-end">
+              <span class="text-light h3">
+                My profile
+                <a href="./profile.html">
+                <i class="far fa-user-circle"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./main.html">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="navbar-brand" href="./gamemode.html">
+          <i class="fas fa-gamepad"></i>
+        </a>
+        <a class="navbar-brand" href="./timemode.html">
+          <i class="fas fa-stopwatch"></i>
+        </a>
+        <a class="navbar-brand" href="./record.html">
+          <i class="fas fa-chart-bar"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+    </nav>
+    <div class="container">
+        <div class="height-90 container d-flex justify-content-center align-items-center" >
+            <div class="card p-3 bg-light" style="background-color: #bbf0f3;
+            background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
+        <div class = "title">
+            <h1>Congratulation! You just completed your exercises</h1>
+            <hr class="solid">
+    
+        </div>
+
+        <figure class="figure">
+            <img src="./images/completion1.jpg" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">A caption for the above image.</figcaption>
+          </figure>
+         
+          <figure class="text-center">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+              Someone famous in <cite title="Source Title">Source Title</cite>
+            </figcaption>
+          </figure>
+    
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Add your title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+            </div><br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">What was the level of the Meditation?</label>
+                <select class="form-control" id="level">
+                    <option>Easy</option>
+                    <option>Moderate</option>
+                    <option>Hard</option>
+                </select>
+                <br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What did you think of the Meditation?</label>
+                    <textarea class="form-control" id="description" rows="3"></textarea>
+                </div>
+                <br>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-lg btn-primary pull-right"
+                        onclick="writeReview()" >Submit</button>
+                </div>
+             </div>
+        </form>
+        </div>
+
+
+    </div>
+    
+
+
+
+    <script src="./scripts/my_script.js"></script>
+
+    <script>
+
+
+
+        let videoID = localStorage.getItem("videoID", "value");
+
+
+        db.collection("Videos").where("code", "==", videoID)
+            .get()
+            .then(queryVideo => {
+                //see how many results you have got from the query
+                size = queryVideo.size;
+                // get the documents of query
+                Videos = queryVideo.docs;
+
+                // We want to have one document per hike, so if the the result of 
+                //the query is more than one, we can check it right now and clean the DB if needed.
+                if (size = 1) {
+                    var thisVideo = Videos[0].data();
+                    name = thisVideo.name;
+                    document.getElementById("videoTitleHere").innerHTML = videoTitle;
+                } else {
+                    console.log("Query has more than one data")
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+        
+
+
+        function writeReview() {
+            let Title = document.getElementById("title").value;
+            let Level = document.getElementById("level").value;
+            let Description = document.getElementById("description").value;
+
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid);
+                    var userID = user.uid;
+                    currentUser.get()
+                        .then(userDoc => {
+							//get user Email
+                            var userEmail = userDoc.data().email;
+							// Start a new collection and add all data in it.
+                            db.collection("Reviews").add({
+                                VideoCode: videoID,
+                                UserID: userID,
+                                UserEmail: userEmail,
+                                Title: Title,
+                                Level: Level,
+                                Descirption: Description
+                            });
+                        })
+                } else {
+                    // No user is signed in.
+					console.log("no user signed in");
+                }
+            });
+
+
+            
+            
+            
+            
+            
+        }
+
+        
+
+
+
+
+
+    </script>
