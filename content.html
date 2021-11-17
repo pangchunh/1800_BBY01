@@ -86,7 +86,7 @@
 
     <!-- Navbar end -->
 
-    
+
     
     
     
@@ -112,7 +112,7 @@
             <div class="col-lg-6 mx-auto">
               <p class="fs-6 mb-2 text-start text-dark" id="detailsHere">"description of the exercise"</p>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="./complete.html" class="btn btn-outline-light btn-lg px-4 me-sm-3 fw-bold" onclick="">Complete</a>
+                <a href="./review.html" class="btn btn-outline-light btn-lg px-4 me-sm-3 fw-bold" onclick="setVideoData(videoID)">Complete</a>
               </div>
             </div>
           </div>
@@ -141,7 +141,38 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <script src="./scripts/my_script.js"></script>
     <script>
-    insertContent();
+      insertContent();
+
+      function setVideoData(id){
+            localStorage.setItem ('videoID', id);
+            let videoID = localstorage.getItem("videoID");
+
+            db.collection("Videos").where("code", "==", videoID)
+            .get()
+            .then(queryVideo => {
+                //see how many results you have got from the query
+                size = queryVideo.size;
+                // get the documents of query
+                Hikes = queryVideo.docs;
+
+                // We want to have one document per hike, so if the the result of 
+                //the query is more than one, we can check it right now and clean the DB if needed.
+                if (size = 1) {
+                    var thisVideo = Videos[0].data();
+                    name = thisVideo.name;
+                    document.getElementById("videoTitleHere").innerHTML = name;
+                } else {
+                    console.log("Query has more than one data")
+                }
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+}
+
+
+
+
     </script>
           
     <!--------------------------------------------------------------------->
