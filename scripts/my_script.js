@@ -222,3 +222,24 @@ function displayVideos() {
             })
         })
     }
+
+
+    function checkUser() {
+        firebase.auth().onAuthStateChanged(user => {
+            if(!user) {
+                window.loaction.href = "login.html";
+            } else {
+                // user is logged in
+            }
+        })
+    }
+
+
+    function signOut() {
+        firebase.auth().signOut().then(function() {
+            console.log("Signed Out");
+            checkUser();
+        }, function(error) {
+            console.error("Sign Out Error", error);
+        });
+    }
