@@ -70,7 +70,7 @@ function displayVideos() {
                 let videoLength = doc.data().length;
                 let videoScore = doc.data().score;
                 let videoReview = doc.data().review
-
+                let collection = "review"
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
                 testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
@@ -80,6 +80,8 @@ function displayVideos() {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
+                testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.id;
+
                 //testVideoCard.getElementById('button').innerHTML = 'hello';
                 testVideoCard.querySelector('a').onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
