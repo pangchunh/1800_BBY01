@@ -74,7 +74,11 @@ function displayVideos() {
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
                 testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
-                testVideoCard.querySelector('small').innerHTML = videoLength + " minutes";
+                if(doc.data().length == 1) {
+                    testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minute";
+                } else {
+                    testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
+                }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 //testVideoCard.getElementById('button').innerHTML = 'hello';
                 testVideoCard.querySelector('a').onclick = function setVideoId() {
@@ -198,8 +202,11 @@ function displayVideos() {
                     let testVideoCard = videoCardTemplate.content.cloneNode(true);
                     testVideoCard.querySelector('h5').innerHTML = videoTitle;
                     testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
-                    testVideoCard.querySelector('small').innerHTML = videoLength + " minutes";
-                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
+                    if(doc.data().length == 1) {
+                        testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minute";
+                    } else {
+                        testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
+                    }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                     //testVideoCard.getElementById('button').innerHTML = 'hello';
                     testVideoCard.querySelector('a').onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);

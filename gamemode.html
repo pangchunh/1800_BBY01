@@ -92,50 +92,52 @@
     <!-- title -->
 
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
+    <section class="py-2 text-center container">
+      <div class="row py-lg-3">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Welcome to the fun mode</h1>
+          <h2 class="fw-bold">Welcome to Fun Mode</h2>
           <hr class="border border-2 border-warning">
           <p class="lead text-muted"> You will be giving a random meditation exercise with
             length of around 1 to 7 minutes. Enjoy a variety of meditation exercise. You may get unexpected exercise
             along the way!</p>
           <p>
-            <a href="timemode.html" class="btn btn-info my-2">Change to timemode</a>
-            <a href="main.html" class="btn btn-warning opacity-50 my-2">Return to home page</a>
+            <a href="timemode.html" class="btn btn-info my-2">Change to Time Mode</a>
+            <a href="main.html" class="btn btn-warning my-2">Return to Home Page</a>
           </p>
         </div>
       </div>
     </section>
 
-    <div class="album py-5" style="background-color: #bbf0f3;
-    background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
-      <div class="container">
-
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
-          <button type="button" class="btn btn-info" onclick="randomVideo()"><p class ="h4 text-center">Refresh <i class="fas fa-sync-alt h4"></i></p></button>
-
+    
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
           <div class="col">
-            <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" style="width:100%; height:100%" src="./images/random.png"
-                focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c" />
-              </svg>
-
-              <div class="card-body bg-warning">
+            <div class="card shadow-sm bg-info border border-light rounded">
+              <img class="bd-placeholder-img card-img-top" style="width:100%; height:80%" src="./images/random.png"
+                focusable="false"></img>
+              <div class="card-body bg-info">
                 <h5 class="text-light">What's your random exercise about?</h5>
+                <small class="text-muted">Duration: </small><small class="text-muted"id="videoLength">9 mins</small>
                 <p class="card-text" id="randomDescription">description</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <a href="./content.html" class="btn btn-sm btn-outline-secondary">Go</a>
-                  <small class="text-muted"id="videoLength">9 mins</small>
+                  <span>Rate and review</span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star checked"></span>
                   <span class="fa fa-star"></span>
                   <span class="fa fa-star"></span>
                 </div>
+                <br/>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="./content.html" class="btn btn-warning">Go</a>
+                </div>
+                
               </div>
+
+            </div>
+            <br/>
+            <div class="d-grid gap-2 col-6 mx-auto" style="background-color: #bbf0f3;
+            background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
+            <button type="button" class="btn" onclick="randomVideo()">Refresh <i class="fas fa-sync-alt h4"></i></button>
             </div>
           </div>
         </div>
