@@ -227,7 +227,7 @@ function displayVideos() {
     function checkUser() {
         firebase.auth().onAuthStateChanged(user => {
             if(!user) {
-                window.loaction.href = "login.html";
+                window.location.href = "login.html";
             } else {
                 // user is logged in
             }
