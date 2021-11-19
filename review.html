@@ -105,7 +105,7 @@
       <div class="card p-3 bg-light" style="background-color: #bbf0f3;
             background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
         <div class="title">
-          <h1>Congratulation! You just completed your exercises</h1>
+          <h1>Congratulation! You just completed <span id="videoTitleHere"></span></h1>
           <hr class="solid">
 
         </div>
@@ -163,6 +163,7 @@
   <script src="./scripts/my_script.js"></script>
 
   <script>
+    insertContent();
 
 
     let videoID = localStorage.getItem("videoID", "value");
