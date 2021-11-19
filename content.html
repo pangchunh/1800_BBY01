@@ -2,182 +2,187 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>My BCIT Project</title>
-    <meta name="comp1800 boilerplate code" content="my bcit project">
-    <meta name="author" content="BCIT">
+  <meta charset="utf-8">
+  <title>My BCIT Project</title>
+  <meta name="comp1800 boilerplate code" content="my bcit project">
+  <meta name="author" content="BCIT">
 
 
-    <link rel="stylesheet" href="/styles/content_style.css">
-    
-    <!-- Bootstrap, firebase-auth-ui -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/styles/content_style.css">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
-    <!-- Optional styles and scripts of your own -->
-    <link href="./styles/my_style.css" rel="stylesheet">
+  <!-- Bootstrap, firebase-auth-ui -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="/scripts/firebaseAPI.js"></script> 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
+  <!-- Optional styles and scripts of your own -->
+  <link href="./styles/my_style.css" rel="stylesheet">
+
+  <script src="/scripts/firebaseAPI.js"></script>
 
 </head>
 
 <body>
 
-    <!-------------------------------------->
-    <!-- The following is HTML for layout -->
-    <!-------------------------------------->
-         <!-- Container -->
-    <div class="container-sm">
+  <!-------------------------------------->
+  <!-- The following is HTML for layout -->
+  <!-------------------------------------->
+  <!-- Container -->
+  <div class="container-sm">
 
-      
-      <!-- Bottom Navbar -->
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <h4 class="text-warning h1">Serenity</h4>
-          <div class="text-light">
-            Hello <span id="navDisplay5" class="text-warning"></span>, what can we help you?
+
+    <!-- Bottom Navbar -->
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h4 class="text-warning h1">Serenity</h4>
+        <div class="text-light">
+          Hello <span id="navDisplay5" class="text-warning"></span>, what can we help you?
+        </div>
+        <br />
+        <div class="row align-items-start">
+          <div class="col align-self-center">
+            <a class="text-light" href="./index.html">
+              <span class="text-light h3" onclick="signOut()">Logout</span>
+            </a>
           </div>
-          <br/>
-            <div class="row align-items-start">
-              <div class="col align-self-center">
-                <a class="text-light" href="./index.html">
-                  <span class="text-light h3" onclick="signOut()">Logout</span>
-                </a>
-              </div>
-              <div class="col text-end">
-                <span class="text-light h3">
-                  My profile
-                  <a href="./user.html">
-                  <i class="far fa-user-circle"></i>
-                  </a>
-                </span>
-              </div>
-            </div>
-  
+          <div class="col text-end">
+            <span class="text-light h3">
+              My profile
+              <a href="./user.html">
+                <i class="far fa-user-circle"></i>
+              </a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./main.html">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="navbar-brand" href="./gamemode.html">
+          <i class="fas fa-gamepad"></i>
+        </a>
+        <a class="navbar-brand" href="./timemode.html">
+          <i class="fas fa-stopwatch"></i>
+        </a>
+        <a class="navbar-brand" href="./record.html">
+          <i class="fas fa-chart-bar"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+      </div>
+    </nav>
+
+    <!-- Navbar end -->
+
+
+
+
+
+    <div class="container">
+
+      <div class="title">
+        <h1 id="videoTitleHere"></h1>
+        <hr class="solid">
+      </div>
+
+      <div class="content">
+        <iframe class="responsive-iframe" id="contentExercise" src="dummy">
+        </iframe>
+      </div>
+      <div class="text">
+      </div>
+
+      <div class="bg-info text-secondary px-4 py-5 text-center" style="background-color: #bbf0f3;
+        background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
+        <h1 class="display-7 fw-bold text-white">Description of the exercise</h1>
+        <p class="fs-6 mb-2 text-start text-dark" id="detailsHere">"description of the exercise"</p>
+        <br />
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="./review.html" class="btn btn-outline-light btn-lg px-4 me-sm-3 fw-bold"
+            onclick="setVideoData(videoID)">Complete</a>
         </div>
       </div>
-      <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./main.html">
-            <i class="fas fa-home"></i>
-          </a>
-          <a class="navbar-brand" href="./gamemode.html">
-            <i class="fas fa-gamepad"></i>
-          </a>
-          <a class="navbar-brand" href="./timemode.html">
-            <i class="fas fa-stopwatch"></i>
-          </a>
-          <a class="navbar-brand" href="./record.html">
-            <i class="fas fa-chart-bar"></i>
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-        </div>
-      </nav>
-  
-      <!-- Navbar end -->
+      <br />
 
+      <hr class="solid">
 
-    
-    
-    
-    <div class = "container">
-
-        <div class = "title">
-            <h1 id="videoTitleHere"></h1>
-            <hr class="solid">
-        </div>
-       
-        <div class="content">
-            <iframe class="responsive-iframe" id ="contentExercise" src="">
-            </iframe>
-        </div>
-        <div class="text">
-        </div>
-
-        <div class="bg-info text-secondary px-4 py-5 text-center" style="background-color: #bbf0f3;
-        background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);">
-            <h1 class="display-7 fw-bold text-white">Description of the exercise</h1>
-              <p class="fs-6 mb-2 text-start text-dark" id="detailsHere">"description of the exercise"</p>
-              <br/>
-              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <a href="./review.html" class="btn btn-outline-light btn-lg px-4 me-sm-3 fw-bold" onclick="setVideoData(videoID)">Complete</a>
-              </div>
-            </div>
-        <br/>
-  
-        <hr class="solid">
-        
     </div>
-
-     
-    <!-- welcome and main part of the page -->
-    
-
-    <!----------------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related, add Jquery    -->
-    <!----------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
-    <!-- Link to the api keys for your firebase project -->
-
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <script src="./scripts/my_script.js"></script>
-    <script>
-      insertContent();
-
-      function setVideoData(id){
-            localStorage.setItem ('videoID', id);
-            let videoID = localstorage.getItem("videoID");
-
-            db.collection("Videos").where("code", "==", videoID)
-            .get()
-            .then(queryVideo => {
-                //see how many results you have got from the query
-                size = queryVideo.size;
-                // get the documents of query
-                Hikes = queryVideo.docs;
-
-                // We want to have one document per hike, so if the the result of 
-                //the query is more than one, we can check it right now and clean the DB if needed.
-                if (size = 1) {
-                    var thisVideo = Videos[0].data();
-                    name = thisVideo.name;
-                    document.getElementById("videoTitleHere").innerHTML = name;
-                } else {
-                    console.log("Query has more than one data")
-                }
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
-}
+  </div>
 
 
+  <!-- welcome and main part of the page -->
 
 
-    </script>
+  <!----------------------------------------------->
+  <!-- JS: Boostrap, Firebase, API related, add Jquery    -->
+  <!----------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+  <!-- Link to the api keys for your firebase project -->
 
-    <script>
-      checkUser();
-    </script>
-          
-    <!--------------------------------------------------------------------->
+  <!--------------------------------------------------------------------->
+  <!-- JS files: Your own JavaScript functions included here    -->
+  <script src="./scripts/my_script.js"></script>
+  <script>
+    insertContent();
+
+    function setVideoData(id) {
+      localStorage.setItem('videoID', id);
+      let videoID = localstorage.getItem("videoID");
+
+      db.collection("Videos").where("code", "==", videoID)
+        .get()
+        .then(queryVideo => {
+          //see how many results you have got from the query
+          size = queryVideo.size;
+          // get the documents of query
+          Hikes = queryVideo.docs;
+
+          // We want to have one document per hike, so if the the result of 
+          //the query is more than one, we can check it right now and clean the DB if needed.
+          if (size = 1) {
+            var thisVideo = Videos[0].data();
+            name = thisVideo.name;
+            document.getElementById("videoTitleHere").innerHTML = name;
+          } else {
+            console.log("Query has more than one data")
+          }
+        })
+        .catch((error) => {
+          console.log("Error getting documents: ", error);
+        });
+    }
+
+
+
+
+  </script>
+
+  <script>
+    checkUser();
+  </script>
+
+  <!--------------------------------------------------------------------->
 
 </body>
 
