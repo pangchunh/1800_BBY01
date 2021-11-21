@@ -65,7 +65,6 @@ function displayVideos() {
                 let videoTitle =doc.data().title;
                 let videoDetails = doc.data().details;
                 let videoId = doc.data().video_ID;
-                let videoLink = "https://www.youtube.com/embed/" + videoId;
                 let videoThumbnail = "http://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
                 let videoLength = doc.data().length;
                 let videoScore = doc.data().score;
@@ -81,26 +80,13 @@ function displayVideos() {
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.id;
-
-                //testVideoCard.getElementById('button').innerHTML = 'hello';
                 testVideoCard.querySelector('a').onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
-
                 }
-
-                //    localStorage.setItem ('vidId', videoId);
-                //}
                 document.getElementById("contentHere").appendChild(testVideoCard);
-
-
-                //console.log(videoDetails);
-                //menu.getElementsByTagName('h4').innerHTML = videoTitle;
-                //document.getElementById("detailsHere").innerHTML = videoDetails;
-                //document.getElementById("contentExercise").src = videoId;
             } else {
                 console.log("No such document!");
             }
-
         })
     })
 }
@@ -162,13 +148,6 @@ function displayVideos() {
         Videos = doc.docs;
         n = Math.floor(Math.random() * 17);
         randomVid = Videos[n].data();
-        //randomTitle = randomVid.title;
-        //randomVidId = "https://www.youtube.com/embed/" + randomVid.video_ID;
-        //randomVidDetail = randomVid.details;
-        //console.log(randomVidDetail);
-        //$("#videoTitleHere").text(randomTitle);
-        //$("#contentExercise").attr("src", randomVidId);
-        //$("#detailsHere").text(randomVidDetail);
         localStorage.setItem('videoID', randomVid.video_ID);
         $("#randomDescription").text(randomVid.details);
         $("#videoLength").text(randomVid.length + " minutes");
@@ -183,9 +162,7 @@ function displayVideos() {
     }
 
     function filter(x) {
-    
         cleanData();
-
     db.collection("Videos").where("length", "==", x).get()
         .then(filterVideo => {
             filterVideo.forEach(doc => {
@@ -195,7 +172,6 @@ function displayVideos() {
                     let videoTitle =doc.data().title;
                     let videoDetails = doc.data().details;
                     let videoId = doc.data().video_ID;
-                    let videoLink = "https://www.youtube.com/embed/" + videoId;
                     let videoThumbnail = "http://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
                     let videoLength = doc.data().length;
                     let videoScore = doc.data().score;
@@ -209,25 +185,15 @@ function displayVideos() {
                     } else {
                         testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                     }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
-                    //testVideoCard.getElementById('button').innerHTML = 'hello';
                     testVideoCard.querySelector('a').onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);
     
                     }
     
-                    //    localStorage.setItem ('vidId', videoId);
-                    //}
                     document.getElementById("contentHere").appendChild(testVideoCard);
-    
-    
-                    //console.log(videoDetails);
-                    //menu.getElementsByTagName('h4').innerHTML = videoTitle;
-                    //document.getElementById("detailsHere").innerHTML = videoDetails;
-                    //document.getElementById("contentExercise").src = videoId;
                 } else {
                     console.log("No such document!");
                 }
-    
             })
         })
     }
