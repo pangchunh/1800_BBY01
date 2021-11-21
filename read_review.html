@@ -89,18 +89,26 @@
     <!-- Navbar end -->
 
     <!-- Review container -->
+    <div class="container-sm">
 
+    <template id="reviewCardTemplate">
     <div class="card">
       <h5 class="card-header">Review title</h5>
-      <div class="card-body">
+      <div class="card-body gradient">
         <h5 class="card-title">User name</h5>
-        <p class="text-muted">Date</p>
+        <span class="text-muted">Date</span>
+        <span class="text-muted text-end" id="level"></span>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
+  </template>
+  
+  <div id="reviewCardGroup">
+    <div id="reviewHere" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-3"></div>
+  </div>
 
-
+    </div>
     </div>
 
 
@@ -112,6 +120,7 @@
 
     <script>
       checkUser();
+      displayReview();
     </script>
   
   

@@ -190,8 +190,6 @@
   <script src="./scripts/my_script.js"></script>
 
   <script>
-    insertContent();
-
 
     let videoID = localStorage.getItem("videoID", "value");
 
@@ -224,16 +222,13 @@
     function writeReview() {
 
       var num = parseInt(document.querySelector('input[name="inlineRadioOptions"]:checked').value);
+      console.log(num)
       let Title = document.getElementById("title").value;
       let Level = document.getElementById("level").value;
       let Description = document.getElementById("description").value;
       let currentdate = new Date();
       let reviewDate = currentdate.getFullYear() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getDate();
       let Score = num;
-
-
-
-
 
       firebase.auth().onAuthStateChanged(user => {
         if (user) {

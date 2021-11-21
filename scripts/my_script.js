@@ -79,7 +79,7 @@ function displayVideos() {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
-                testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.id;
+                testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
                 testVideoCard.querySelector('a').onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
                 }
@@ -218,3 +218,47 @@ function displayVideos() {
             console.error("Sign Out Error", error);
         });
     }
+
+    function displayReview() {
+    let reviewCardTemplate = document.getElementById("reviewCardTemplate");
+    let reviewCardGroup = document.getElementById("reviewCardGroup");
+    let url = window.location.href;
+    let videoid = url.split('id=')[1];
+    console.log(videoid);
+    db.collection("Reviews").where("video_ID", "==",videoid).get()
+    .then(allReviews => {
+        allReviews.forEach(doc => {
+            if (doc.exists) {
+                console.log(doc.data());
+
+                let reviewTitle = doc.data().title;
+                let reviewDes = doc.data().descirption; 
+                let reviewer = doc.data().name;
+                console.log(reviewer);
+                let reviewdate = doc.data().date;
+                let level = doc.data().level;
+                console.log(level);
+
+                let testReviewCard = reviewCardTemplate.content.cloneNode(true);
+                testReviewCard.querySelector('.card-header').innerHTML = reviewTitle;
+                testReviewCard.querySelector('.card-text').innerHTML = reviewDes;
+                testReviewCard.querySelector('.text-muted').innerHTML = reviewdate;
+                testReviewCard.querySelector('.card-title').innerHTML = reviewer;
+                testReviewCard.getElementById('level').innerHTML = level;
+                //testVideoCard.getElementById('thumbnail').src = videoThumbnail;
+                //testVideoCard.querySelector('a').onclick = function setVideoId() {
+                //localStorage.setItem ('videoID', doc.data().video_ID);
+                
+                document.getElementById("reviewHere").appendChild(testReviewCard);
+            } else {
+                console.log("No such document!");
+            }
+        })
+    })
+}
+
+        
+            
+
+
+    

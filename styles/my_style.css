@@ -7,11 +7,16 @@ body {
   padding-bottom: 85px;
   padding-left: 1em;
   padding-right: 1em;
+  height: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+.height100 {
+  height:100vh;
 }
 
 
