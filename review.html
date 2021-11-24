@@ -138,7 +138,7 @@
             <br>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlTextarea1">What did you think of the Meditation?</label>
+            <label for="exampleFormControlTextarea1">How difficult was the Meditation?</label>
             <textarea class="form-control" id="description" rows="3"></textarea>
           </div>
           <div class="form-group">
@@ -193,20 +193,21 @@
   <script src="./scripts/my_script.js"></script>
 
   <script>
-
+    // videoID is a variable that will be saved to the local storage in the browser
     let videoID = localStorage.getItem("videoID", "value");
 
-
+    // accessing the Videos collection and grabbing the video_ID
     db.collection("Videos").where("video_ID", "==", videoID)
       .get()
       .then(queryVideo => {
-        //see how many results you have got from the query
+        // see how many results you have got from the query
         size = queryVideo.size;
         // get the documents of query
         Videos = queryVideo.docs;
+        // get the Video title
         videoTitle = Videos.title;
 
-        // We want to have one document per hike, so if the the result of 
+        // We want to have one document per video, so if the the result of 
         //the query is more than one, we can check it right now and clean the DB if needed.
         if (size = 1) {
           var thisVideo = Videos[0].data();
@@ -221,21 +222,33 @@
       });
 
 
-
+    /**
+     * This function allows the user to write a review and then write it to the database in firebase.
+     * 
+    **/
     function writeReview() {
-
+      // num is the value of the radiobutton selected by the user and parses it from a string to an int
       var num = parseInt(document.querySelector('input[name="inlineRadioOptions"]:checked').value);
       console.log(num)
+      // gets the title of the review and its value
       let Title = document.getElementById("title").value;
+      // gets the difficulty level of the meditation
       let Level = document.getElementById("level").value;
+      // gets the description written by the user
       let Description = document.getElementById("description").value;
+      // gets the date stamp of the review
       let currentdate = new Date();
       let reviewDate = currentdate.getFullYear() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getDate();
+      // gets the score and writes it to the database
       let Score = num;
 
+      // checks the user
       firebase.auth().onAuthStateChanged(user => {
+        // if user exists
         if (user) {
+          // get the current user
           var currentUser = db.collection("users").doc(user.uid);
+          // gets the user ID
           var userID = user.uid;
           currentUser.get()
             .then(userDoc => {
@@ -267,6 +280,7 @@
       });
     }
 
+    // when the user completes the review redirects the user to the main.html
     function complete() {
       window.location.replace("main.html");
 
@@ -281,6 +295,7 @@
     integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
   <script>
+    // checks if the user exists
     checkUser();
   </script>
 </body>
