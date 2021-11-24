@@ -200,10 +200,12 @@ function displayVideos() {
         })
     }
 
-
+    // checks if the user if they exists and runs in most pages
     function checkUser() {
         firebase.auth().onAuthStateChanged(user => {
+            // checks if the user exists
             if(!user) {
+                // redirects the user to the login page
                 window.location.href = "index.html";
             } else {
                 // user is logged in
@@ -211,12 +213,15 @@ function displayVideos() {
         })
     }
 
-
+    // signs out the user from the web application
     function signOut() {
-        firebase.auth().signOut().then(function() {
+        // signs out the user
+        firebase.auth().signOut().then(function () {
             console.log("Signed Out");
+            // runs the function to check if the user exists
             checkUser();
-        }, function(error) {
+            // error if the function does not work
+        }, function (error) {
             console.error("Sign Out Error", error);
         });
     }
