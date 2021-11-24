@@ -31,8 +31,7 @@ function insertName() {
         //get the document for current user.
         currentUser.get()
           .then(userDoc => {
-            var user_Name = userDoc.data().name;
-            console.log(user_Name);
+            let user_Name = userDoc.data().name;
             //method #1:  insert with html only
             //document.getElementById("name-goes-here").innerText = n;    //using javascript
             //method #2:  insert using jquery
@@ -60,7 +59,6 @@ function displayVideos() {
     .then(allVideos => {
         allVideos.forEach(doc => {
             if (doc.exists) {
-                console.log(doc.data());
 
                 let videoTitle =doc.data().title;
                 let videoDetails = doc.data().details;
@@ -73,7 +71,7 @@ function displayVideos() {
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
                 testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
-                
+
                 if(doc.data().length == 1) {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minute";
                 } else {
@@ -170,8 +168,7 @@ function displayVideos() {
         .then(filterVideo => {
             filterVideo.forEach(doc => {
                 if (doc.exists) {
-                    console.log(doc.data());
-    
+
                     let videoTitle =doc.data().title;
                     let videoDetails = doc.data().details;
                     let videoId = doc.data().video_ID;
@@ -192,9 +189,9 @@ function displayVideos() {
                     testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
                     testVideoCard.querySelector('a').onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);
-    
+
                     }
-    
+
                     document.getElementById("contentHere").appendChild(testVideoCard);
                 } else {
                     console.log("No such document!");
@@ -229,7 +226,6 @@ function displayVideos() {
     let reviewCardGroup = document.getElementById("reviewCardGroup");
     let url = window.location.href;
     let videoid = url.split('id=')[1];
-    console.log(videoid);
     db.collection("Reviews").where("video_ID", "==",videoid).get()
     .then(allReviews => {
         let overallScore = 0;
@@ -238,7 +234,7 @@ function displayVideos() {
             if (doc.exists) {
 
                 let reviewTitle = doc.data().title;
-                let reviewDes = doc.data().descirption; 
+                let reviewDes = doc.data().descirption;
                 let reviewer = doc.data().name;
                 let reviewdate = doc.data().date;
                 let level = doc.data().level;
@@ -252,13 +248,12 @@ function displayVideos() {
                         let vidDoc = vid.id
                         db.collection("Videos").doc(vidDoc).update({
                             score: averageScore
-                            
+
                         })
                     })
                 })
 
-                console.log(doc.id);
-               
+
                 let testReviewCard = reviewCardTemplate.content.cloneNode(true);
                 testReviewCard.querySelector('.card-header').innerHTML = reviewTitle;
                 testReviewCard.querySelector('.card-text').innerHTML = reviewDes;
@@ -266,17 +261,16 @@ function displayVideos() {
                 testReviewCard.querySelector('.card-title').innerHTML = reviewer;
                 testReviewCard.getElementById('level').innerHTML = level;
 
-               
+
                 //testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 //testVideoCard.querySelector('a').onclick = function setVideoId() {
                 //localStorage.setItem ('videoID', doc.data().video_ID);
-                
+
                 document.getElementById("reviewHere").appendChild(testReviewCard);
             } else {
                 console.log("No such document!");
             }
-            console.log(averageScore);
-            
+
 
         })
     })
@@ -284,8 +278,8 @@ function displayVideos() {
 
 
 
-        
-            
 
 
-    
+
+
+
