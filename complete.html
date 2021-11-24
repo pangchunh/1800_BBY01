@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>My BCIT Project</title>
+    <title>Complete</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
 
 
-    <link rel="stylesheet" href="/styles/content_style.css"></script>
+    <link rel="stylesheet" href="/styles/content_style.css">
     
     <!-- Bootstrap, firebase-auth-ui -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,7 +26,7 @@
     <!-- Optional styles and scripts of your own -->
     <link href="./styles/my_style.css" rel="stylesheet">
 
-    <script src="./scripts/firebaseAPI.js"></script> 
+    <script src="./scripts/firebaseAPI_team01.js"></script> 
 
 </head>
 
@@ -37,55 +37,55 @@
     <!-------------------------------------->
     
     <!-- Bottom Navbar -->
- <div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h4 class="text-warning h1">Serenity</h4>
-    <div class="text-light">
-      Hello <span id="navDisplay2" class="text-warning"></span>, what can we help you?
-    </div>
-    <br/>
-      <div class="row align-items-start">
-        <div class="col align-self-center">
-          <a class="text-light" href="./index.html">
-            <span class="text-light h3" onclick="signOut()">Logout</span>
-          </a>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <h4 class="text-warning h1 appName text-center">Serenity</h4>
+        <div class="text-light text-center">
+          Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today?
         </div>
-        <div class="col text-end">
-          <span class="text-light h3">
-            My profile
-            <a href="./profile.html">
-            <i class="far fa-user-circle"></i>
+        <br/>
+          <div class="row align-items-start">
+            <div class="col align-self-center">
+              <a class="text-light" href="./index.html">
+                <span class="text-warning" onclick="signOut()">Logout</span>
+              </a>
+            </div>
+            <div class="col text-end">
+              <a class="text-light" href="./user.html">
+              <span class="text-light">
+                My profile
+                <i class="far fa-user-circle"></i>
+              </span>
             </a>
-          </span>
-        </div>
+            </div>
+          </div>
+
       </div>
+    </div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./main.html">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="navbar-brand" href="./gamemode.html">
+          <i class="fas fa-gamepad"></i>
+        </a>
+        <a class="navbar-brand" href="./timemode.html">
+          <i class="fas fa-stopwatch"></i>
+        </a>
+        <a class="navbar-brand" href="./record.html">
+          <i class="fas fa-chart-bar"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  </div>
-</div>
-<nav class="navbar fixed-bottom navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="./main.html">
-      <i class="fas fa-home"></i>
-    </a>
-    <a class="navbar-brand" href="./gamemode.html">
-      <i class="fas fa-gamepad"></i>
-    </a>
-    <a class="navbar-brand" href="./timemode.html">
-      <i class="fas fa-stopwatch"></i>
-    </a>
-    <a class="navbar-brand" href="./record.html">
-      <i class="fas fa-chart-bar"></i>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-      data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-      aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      </div>
+    </nav>
 
-  </div>
-</nav>
-
-<!-- Navbar end -->
+    <!-- Navbar end -->
     
     
     

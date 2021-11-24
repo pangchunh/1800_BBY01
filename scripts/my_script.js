@@ -73,6 +73,7 @@ function displayVideos() {
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
                 testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
+                
                 if(doc.data().length == 1) {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minute";
                 } else {
@@ -148,9 +149,11 @@ function displayVideos() {
         Videos = doc.docs;
         n = Math.floor(Math.random() * 17);
         randomVid = Videos[n].data();
+        let collection = "review"
         localStorage.setItem('videoID', randomVid.video_ID);
         $("#randomDescription").text(randomVid.details);
         $("#videoLength").text(randomVid.length + " minutes");
+        $("#gameModereview").attr("href", "read_review.html?collection="+ collection +"?id=" + Videos[n].data().video_ID)
     })
     }
 
@@ -176,7 +179,8 @@ function displayVideos() {
                     let videoLength = doc.data().length;
                     let videoScore = doc.data().score;
                     let videoReview = doc.data().review
-    
+                    let collection = "review"
+
                     let testVideoCard = videoCardTemplate.content.cloneNode(true);
                     testVideoCard.querySelector('h5').innerHTML = videoTitle;
                     testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
@@ -185,6 +189,7 @@ function displayVideos() {
                     } else {
                         testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                     }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
+                    testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
                     testVideoCard.querySelector('a').onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);
     
@@ -202,7 +207,7 @@ function displayVideos() {
     function checkUser() {
         firebase.auth().onAuthStateChanged(user => {
             if(!user) {
-                window.location.href = "login.html";
+                window.location.href = "index.html";
             } else {
                 // user is logged in
             }
@@ -227,24 +232,41 @@ function displayVideos() {
     console.log(videoid);
     db.collection("Reviews").where("video_ID", "==",videoid).get()
     .then(allReviews => {
+        let overallScore = 0;
+        let averageScore = 0;
         allReviews.forEach(doc => {
             if (doc.exists) {
-                console.log(doc.data());
 
                 let reviewTitle = doc.data().title;
                 let reviewDes = doc.data().descirption; 
                 let reviewer = doc.data().name;
-                console.log(reviewer);
                 let reviewdate = doc.data().date;
                 let level = doc.data().level;
-                console.log(level);
+                let score = doc.data().score;
+                overallScore += score;
+                averageScore = overallScore / allReviews.size;
 
+                // Update average score of the video to firestore when displaying the reviews from user
+                db.collection("Videos").where("video_ID", "==", videoid).get().then(query => {
+                    query.forEach(vid => {
+                        let vidDoc = vid.id
+                        db.collection("Videos").doc(vidDoc).update({
+                            score: averageScore
+                            
+                        })
+                    })
+                })
+
+                console.log(doc.id);
+               
                 let testReviewCard = reviewCardTemplate.content.cloneNode(true);
                 testReviewCard.querySelector('.card-header').innerHTML = reviewTitle;
                 testReviewCard.querySelector('.card-text').innerHTML = reviewDes;
                 testReviewCard.querySelector('.text-muted').innerHTML = reviewdate;
                 testReviewCard.querySelector('.card-title').innerHTML = reviewer;
                 testReviewCard.getElementById('level').innerHTML = level;
+
+               
                 //testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 //testVideoCard.querySelector('a').onclick = function setVideoId() {
                 //localStorage.setItem ('videoID', doc.data().video_ID);
@@ -253,9 +275,14 @@ function displayVideos() {
             } else {
                 console.log("No such document!");
             }
+            console.log(averageScore);
+            
+
         })
     })
 }
+
+
 
         
             
