@@ -46,12 +46,18 @@
 
 <body>
 
-   <!-- Bottom Navbar -->
-   <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h4 class="text-warning h1 appName text-center">Serenity</h4>
-      <div class="text-light text-center">
-        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today?
+   
+      
+    <!-- Bottom Navbar -->
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header bg-dark">
+        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="text-center bg-dark"><h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
+      </div>
+      <div class="offcanvas-body bg-dark text-light">
+        <div class="text-center bg-dark">
+        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
       </div>
       <br/>
         <div class="row align-items-start">
@@ -61,43 +67,42 @@
             </a>
           </div>
           <div class="col text-end">
-            <a class="text-light" href="./user.html">
-            <span class="text-light">
-              My profile
-              <i class="far fa-user-circle"></i>
+            <span class="">
+              <a class="text-light" href="./user.html">
+                My profile
+                <i class="far fa-user-circle"></i>
+              </a>
             </span>
-          </a>
           </div>
-        </div>
-
+      </div>
+      </div>
     </div>
-  </div>
-  <nav class="navbar fixed-bottom navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="./main.html">
-        <i class="fas fa-home"></i>
-      </a>
-      <a class="navbar-brand" href="./gamemode.html">
-        <i class="fas fa-gamepad"></i>
-      </a>
-      <a class="navbar-brand" href="./timemode.html">
-        <i class="fas fa-stopwatch"></i>
-      </a>
-      <a class="navbar-brand" href="./record.html">
-        <i class="fas fa-chart-bar"></i>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-    </div>
-  </nav>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="./main.html">
+          <i class="fas fa-home"></i>
+        </a>
+        <a class="navbar-brand" href="./gamemode.html">
+          <i class="fas fa-gamepad"></i>
+        </a>
+        <a class="navbar-brand" href="./timemode.html">
+          <i class="fas fa-stopwatch"></i>
+        </a>
+        <a class="navbar-brand" href="./record.html">
+          <i class="fas fa-chart-bar"></i>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasTop" aria-controls="offcanvas-top"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- Navbar end -->
+      </div>
+    </nav>
 
-
+    <!-- Navbar end -->
+    
   <!-- Container -->
 
   <div class="container">

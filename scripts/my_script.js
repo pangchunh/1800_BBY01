@@ -79,7 +79,7 @@ function displayVideos() {
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
-                testVideoCard.querySelector('a').onclick = function setVideoId() {
+                testVideoCard.getElementById("go").onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
                 }
                 document.getElementById("contentHere").appendChild(testVideoCard);
@@ -187,7 +187,7 @@ function displayVideos() {
                         testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                     }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                     testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
-                    testVideoCard.querySelector('a').onclick = function setVideoId() {
+                    testVideoCard.getElementById("go").onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);
 
                     }

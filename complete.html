@@ -36,32 +36,38 @@
     <!-- The following is HTML for layout -->
     <!-------------------------------------->
     
+   
+      
     <!-- Bottom Navbar -->
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="bg-dark p-4">
-        <h4 class="text-warning h1 appName text-center">Serenity</h4>
-        <div class="text-light text-center">
-          Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today?
-        </div>
-        <br/>
-          <div class="row align-items-start">
-            <div class="col align-self-center">
-              <a class="text-light" href="./index.html">
-                <span class="text-warning" onclick="signOut()">Logout</span>
-              </a>
-            </div>
-            <div class="col text-end">
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+      <div class="offcanvas-header bg-dark">
+        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="text-center bg-dark"><h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
+      </div>
+      <div class="offcanvas-body bg-dark text-light">
+        <div class="text-center bg-dark">
+        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
+      </div>
+      <br/>
+        <div class="row align-items-start">
+          <div class="col align-self-center">
+            <a class="text-light" href="./index.html">
+              <span class="text-warning" onclick="signOut()">Logout</span>
+            </a>
+          </div>
+          <div class="col text-end">
+            <span class="">
               <a class="text-light" href="./user.html">
-              <span class="text-light">
                 My profile
                 <i class="far fa-user-circle"></i>
-              </span>
-            </a>
-            </div>
+              </a>
+            </span>
           </div>
-
+      </div>
       </div>
     </div>
+
     <nav class="navbar fixed-bottom navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="./main.html">
@@ -76,8 +82,8 @@
         <a class="navbar-brand" href="./record.html">
           <i class="fas fa-chart-bar"></i>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasTop" aria-controls="offcanvas-top"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,8 +91,7 @@
       </div>
     </nav>
 
-    <!-- Navbar end -->
-    
+    <!-- Navbar end -->    
     
     
     <div class = "container">
