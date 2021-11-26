@@ -12,6 +12,7 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel="stylesheet" href="jquery.rateyo.css" />
+ 
 
   <!-- Boostrap JS CDN -->
 
@@ -24,6 +25,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <!-- Link to the api keys for your Firebase project -->
   <script src="./scripts/firebaseAPI_team01.js"></script>
@@ -130,7 +132,7 @@
           </figcaption>
         </figure>
 
-        <form>
+        <form method="POST" action="do-something.php">
           <div class="form-group">
             <label for="exampleFormControlInput1">Add your title</label>
             <input type="text" class="form-control" id="title" placeholder="Title">
@@ -249,6 +251,8 @@
       // gets the score and writes it to the database
       let Score = num;
 
+
+
       // checks the user
       firebase.auth().onAuthStateChanged(user => {
         // if user exists
@@ -276,7 +280,7 @@
                 date: reviewDate
 
               });
-              window.alert("Review Submitted!");
+              alertBox();
 
 
             })
@@ -292,6 +296,24 @@
       window.location.replace("main.html");
 
     }
+
+    function alertBox() {
+        swal.fire({
+            title: "Review Submitted!",
+            icon: "success",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((isOkay) => {
+            if (isOkay) {
+                form.submit();
+            }
+        });
+        return false;
+    }
+
+
+    
 
   </script>
 
