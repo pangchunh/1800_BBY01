@@ -74,3 +74,8 @@ body {
 .small-text {
   font-size: 0.9em;
 }
+
+.form-group {
+  width: 100%;
+}
+
