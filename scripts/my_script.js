@@ -51,6 +51,7 @@ function insertName() {
   }
   insertName();
 
+//
 function displayVideos() {
     cleanData();
     let videoCardTemplate = document.getElementById("videoCardTemplate");
@@ -71,7 +72,6 @@ function displayVideos() {
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
                 testVideoCard.querySelector('.card-text').innerHTML = videoDetails;
-
                 if(doc.data().length == 1) {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minute";
                 } else {
@@ -79,8 +79,17 @@ function displayVideos() {
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
+
+                for(let i = 0; i < videoScore; i++) {
+                    testVideoCard.getElementById('star-group').children[i].setAttribute("class", "fa fa-star checked");
+                }
+
                 testVideoCard.getElementById("go").onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
+
+
+
+
                 }
                 document.getElementById("contentHere").appendChild(testVideoCard);
             } else {
@@ -147,6 +156,14 @@ function displayVideos() {
         Videos = doc.docs;
         n = Math.floor(Math.random() * 17);
         randomVid = Videos[n].data();
+        let score = randomVid.score;
+        for(let index = 0; index < 5; index++) {
+            document.getElementById('star-gp').children[index].setAttribute("class", "fa fa-star");
+        }
+
+        for(let i = 0; i < score; i++) {
+            document.getElementById('star-gp').children[i].setAttribute("class", "fa fa-star checked");
+        }
         let collection = "review"
         localStorage.setItem('videoID', randomVid.video_ID);
         $("#randomDescription").text(randomVid.details);
@@ -187,6 +204,9 @@ function displayVideos() {
                         testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                     }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                     testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
+                    for(let i = 0; i < videoScore; i++) {
+                        testVideoCard.getElementById('star-group').children[i].setAttribute("class", "fa fa-star checked");
+                    }
                     testVideoCard.getElementById("go").onclick = function setVideoId() {
                     localStorage.setItem ('videoID', doc.data().video_ID);
 
@@ -244,27 +264,33 @@ function displayVideos() {
                 let reviewdate = doc.data().date;
                 let level = doc.data().level;
                 let score = doc.data().score;
+                let vidTitle;
                 overallScore += score;
                 averageScore = overallScore / allReviews.size;
 
                 // Update average score of the video to firestore when displaying the reviews from user
                 db.collection("Videos").where("video_ID", "==", videoid).get().then(query => {
                     query.forEach(vid => {
+                        vidTitle = vid.data().title;
+                        $("#testTitle").text(vidTitle);
                         let vidDoc = vid.id
                         db.collection("Videos").doc(vidDoc).update({
                             score: averageScore
 
                         })
                     })
+
                 })
-
-
                 let testReviewCard = reviewCardTemplate.content.cloneNode(true);
                 testReviewCard.querySelector('.card-header').innerHTML = reviewTitle;
                 testReviewCard.querySelector('.card-text').innerHTML = reviewDes;
-                testReviewCard.querySelector('.text-muted').innerHTML = reviewdate;
+                testReviewCard.getElementById('date').innerHTML = reviewdate;
                 testReviewCard.querySelector('.card-title').innerHTML = reviewer;
                 testReviewCard.getElementById('level').innerHTML = level;
+                for(let i = 0; i < score; i++) {
+                    testReviewCard.getElementById('review-star').children[i].setAttribute("class", "fa fa-star checked");
+                }
+                localStorage.setItem('videoID', videoid);
 
 
                 //testVideoCard.getElementById('thumbnail').src = videoThumbnail;
@@ -280,11 +306,4 @@ function displayVideos() {
         })
     })
 }
-
-
-
-
-
-
-
 

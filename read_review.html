@@ -1,56 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Read reviews</title>
-    <meta name="comp1800 template" content="my bcit Hiking App project">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Boostrap JS CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    
-    <!-- Firebase 8 related CSS CDN -->
-    
-    <!-- Firebase 8 related JS CDN -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    
-    <!-- Link to the api keys for your Firebase project -->
-    <script src="/scripts/firebaseAPI_team01.js"></script> 
-    
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
-    <link href="./styles/my_style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title>Read reviews</title>
+  <meta name="comp1800 template" content="my bcit Hiking App project">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-      
-    </style>
-  </head>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <body>
-    <!-- Container -->
-    <div class="container-sm">
+  <!-- Boostrap JS CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      
-    
-      
+  <!-- Firebase 8 related CSS CDN -->
+
+  <!-- Firebase 8 related JS CDN -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+  <!-- Link to the api keys for your Firebase project -->
+  <script src="/scripts/firebaseAPI_team01.js"></script>
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
+  <link href="./styles/my_style.css" rel="stylesheet">
+
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <!-- Container -->
+  <div class="container-sm">
+
+
+
+
     <!-- Bottom Navbar -->
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header bg-dark">
-        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
       </div>
-      <div class="text-center bg-dark"><h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
+      <div class="text-center bg-dark">
+        <h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
       </div>
       <div class="offcanvas-body bg-dark text-light">
         <div class="text-center bg-dark">
-        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
-      </div>
-      <br/>
+          Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
+        </div>
+        <br />
         <div class="row align-items-start">
           <div class="col align-self-center">
             <a class="text-light" href="./index.html">
@@ -65,7 +69,7 @@
               </a>
             </span>
           </div>
-      </div>
+        </div>
       </div>
     </div>
 
@@ -83,9 +87,8 @@
         <a class="navbar-brand" href="./record.html">
           <i class="fas fa-chart-bar"></i>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTop" aria-controls="offcanvas-top"
-          aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+          aria-controls="offcanvas-top" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -96,40 +99,60 @@
 
     <!-- Review container -->
     <div class="container-sm">
-
-    <template id="reviewCardTemplate">
-    <div class="card">
-      <h5 class="card-header">Review title</h5>
-      <div class="card-body gradient">
-        <h5 class="card-title">User name</h5>
-        <span class="text-muted">Date</span>
-        <span class="text-muted text-end" id="level"></span>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+      <h2 class="text-center" id="testTitle"></h2>
+      <h3 class="text-center text-info">Reviews</h3>
+      <div class="d-flex justify-content-center">
+        <a href="gamemode.html" class="btn btn-warning my-3">Fun Mode</a>
+        <a href="timemode.html" class="btn btn-info my-3">Time Mode</a>
       </div>
+      <template id="reviewCardTemplate">
+        <div class="card gradient">
+          <h3 class="card-header bg-body text-center">Review title</h3>
+          <div class="card-body gradient">
+            <span class="text-muted d-flex justify-content-between"><span id="date">Date</span>
+            <span id="review-star">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </span>
+          </span>
+            <div class="card-title">User name</div>
+          
+            <span class="text-muted text-end">What is the difficulty of the exercise?</span>
+            <div id="level"></div>
+            <p></p>
+            <div class="text-muted">Comment to the exercise:</div>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            
+          </div>
+        </div>
+      </template>
+
+      <div id="reviewCardGroup">
+        <div id="reviewHere" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-3"></div>
+      </div>
+      <a href="content.html" class="btn btn-warning my-3 d-flex text-center justify-content-center">Go to exercise</a>
+
+
     </div>
-  </template>
-  
-  <div id="reviewCardGroup">
-    <div id="reviewHere" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-3"></div>
   </div>
 
-    </div>
-    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="./scripts/my_script.js"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./scripts/my_script.js"></script>
-  
-    
 
-    <script>
-      checkUser();
-      displayReview();
-    </script>
-  
-  
-  </body>
+  <script>
+    checkUser();
+    displayReview();
+  </script>
+
+
+</body>
 
 </html>
-
