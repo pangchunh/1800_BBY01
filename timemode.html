@@ -40,62 +40,63 @@
     <div class="container-sm">
 
 
-     
-      
-    <!-- Bottom Navbar -->
-    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-      <div class="offcanvas-header bg-dark">
-        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="text-center bg-dark"><h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
-      </div>
-      <div class="offcanvas-body bg-dark text-light">
+
+
+      <!-- Bottom Navbar -->
+      <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+        <div class="offcanvas-header bg-dark">
+          <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
         <div class="text-center bg-dark">
-        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
-      </div>
-      <br/>
-        <div class="row align-items-start">
-          <div class="col align-self-center">
-            <a class="text-light" href="./index.html">
-              <span class="text-warning" onclick="signOut()">Logout</span>
-            </a>
+          <h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
+        </div>
+        <div class="offcanvas-body bg-dark text-light">
+          <div class="text-center bg-dark">
+            Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
           </div>
-          <div class="col text-end">
-            <span class="">
-              <a class="text-light" href="./user.html">
-                My profile
-                <i class="far fa-user-circle"></i>
+          <br />
+          <div class="row align-items-start">
+            <div class="col align-self-center">
+              <a class="text-light" href="./index.html">
+                <span class="text-warning" onclick="signOut()">Logout</span>
               </a>
-            </span>
+            </div>
+            <div class="col text-end">
+              <span class="">
+                <a class="text-light" href="./user.html">
+                  My profile
+                  <i class="far fa-user-circle"></i>
+                </a>
+              </span>
+            </div>
           </div>
+        </div>
       </div>
-      </div>
-    </div>
 
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./main.html">
-          <i class="fas fa-home"></i>
-        </a>
-        <a class="navbar-brand" href="./gamemode.html">
-          <i class="fas fa-gamepad"></i>
-        </a>
-        <a class="navbar-brand" href="./timemode.html">
-          <i class="fas fa-stopwatch"></i>
-        </a>
-        <a class="navbar-brand" href="./record.html">
-          <i class="fas fa-chart-bar"></i>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTop" aria-controls="offcanvas-top"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <nav class="navbar fixed-bottom navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./main.html">
+            <i class="fas fa-home"></i>
+          </a>
+          <a class="navbar-brand" href="./gamemode.html">
+            <i class="fas fa-gamepad"></i>
+          </a>
+          <a class="navbar-brand" href="./timemode.html">
+            <i class="fas fa-stopwatch"></i>
+          </a>
+          <a class="navbar-brand" href="./record.html">
+            <i class="fas fa-chart-bar"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+            aria-controls="offcanvas-top" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      </div>
-    </nav>
+        </div>
+      </nav>
 
-    <!-- Navbar end -->
+      <!-- Navbar end -->
 
       <!-- title -->
       <section class="py-3 text-center container">
@@ -105,8 +106,8 @@
           <p class="lead text-muted">Specify the time you would like to spend today and choose your desire exercise.
           </p>
           <p>
-            <a href="gamemode.html" class="btn btn-warning my-2">Change to Fun Mode</a>
-            <a href="main.html" class="btn btn-info my-2">Return to Home Page</a>
+            <a href="gamemode.html" class="btn btn-info my-2">Change to Fun Mode</a>
+            <a href="main.html" class="btn btn-warning my-2">Return to Home Page</a>
           </p>
         </div>
       </section>
@@ -120,16 +121,20 @@
             <h3 class="text-center">Please choose the duration</h3>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-              <label class="btn btn-outline-info small-text" for="btnradio1" onclick="filter(1)">1 min</label>
+              <label class="btn btn-outline-warning text-black small-text" for="btnradio1" onclick="filter(1)">1
+                min</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-              <label class="btn btn-outline-info small-text" for="btnradio2" onclick="filter(3)">3 mins</label>
+              <label class="btn btn-outline-warning text-black small-text" for="btnradio2" onclick="filter(3)">3
+                mins</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-              <label class="btn btn-outline-info small-text" for="btnradio3" onclick="filter(5)">5 mins</label>
+              <label class="btn btn-outline-warning text-black small-text" for="btnradio3" onclick="filter(5)">5
+                mins</label>
 
               <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-              <label class="btn btn-outline-info small-text" for="btnradio4" onclick="filter(7)">7 mins</label>
+              <label class="btn btn-outline-warning text-black small-text" for="btnradio4" onclick="filter(7)">7
+                mins</label>
             </div>
           </div>
           <br /><br />
@@ -139,7 +144,7 @@
             <div class="col">
               <div class="card shadow-sm gradient">
                 <img class=" bd-placeholder-img card-img-top" id="thumbnail" width="100%" height="100%" src="123"
-                focusable="false">
+                  focusable="false">
 
                 <div class="card-body">
                   <h5>Title</h5>
@@ -149,13 +154,13 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <a href="" id="readreview">Rate and review</a>
                     <span class="star-group" id="star-group">
-                      
+
                       <span class="fa fa-star"></span>
                       <span class="fa fa-star"></span>
                       <span class="fa fa-star"></span>
                       <span class="fa fa-star"></span>
                       <span class="fa fa-star"></span>
-                      
+
                     </span>
                   </div>
                   <br />
@@ -166,7 +171,7 @@
                 </div>
               </div>
             </div>
-            <br/>
+            <br />
           </template>
 
 
