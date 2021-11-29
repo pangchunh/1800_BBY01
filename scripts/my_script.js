@@ -3,12 +3,10 @@ function sayHello() {
         if (user) {
             // User is signed in.
             // Do something for the user here.
-            console.log(user.uid);
             db.collection("users").doc(user.uid)
                 .get()
                 .then(function (doc) {
                     var n = doc.data().name;
-                    console.log(n);
                     //$("#username").text(n);
                     document.getElementById("username").innerText = n;
                     document.getElementById("navDisplay").innerText = n;
@@ -25,7 +23,6 @@ function insertName() {
       // Check if user is signed in:
       if (user) {
         // Do something for the current logged-in user here:
-        console.log(user.uid);
         //go to the correct user document by referencing to the user uid
         currentUser = db.collection("users").doc(user.uid);
         //get the document for current user.
