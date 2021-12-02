@@ -21,7 +21,7 @@ Technologies used for this project:
 - JQuery
 
 ## Content
-
+```
 Content of the project folder:
 
  Top level of project folder:
@@ -71,4 +71,5 @@ It has the following subfolders and files:
 Firebase hosting files:
 ├── .firebaserc
 
+```
 
