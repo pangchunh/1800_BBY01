@@ -77,7 +77,7 @@ function displayVideos() {
                     testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                 }
                 testVideoCard.getElementById('thumbnail').src = videoThumbnail;
-                testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
+                testVideoCard.getElementById("readreview").href = "read-review.html?collection="+ collection +"?id=" + doc.data().video_ID;
 
                 for(let i = 0; i < videoScore; i++) {
                     testVideoCard.getElementById('star-group').children[i].setAttribute("class", "fa fa-star checked");
@@ -139,7 +139,7 @@ function displayVideos() {
         localStorage.setItem('videoID', randomVid.video_ID);
         $("#randomDescription").text(randomVid.details);
         $("#videoLength").text(randomVid.length + " minutes");
-        $("#gameModereview").attr("href", "read_review.html?collection="+ collection +"?id=" + Videos[n].data().video_ID)
+        $("#gameModereview").attr("href", "read-review.html?collection="+ collection +"?id=" + Videos[n].data().video_ID)
     })
     }
 
@@ -178,7 +178,7 @@ function displayVideos() {
                     } else {
                         testVideoCard.querySelector('small').innerHTML = "Duration: " + videoLength + " minutes";
                     }                    testVideoCard.getElementById('thumbnail').src = videoThumbnail;
-                    testVideoCard.getElementById("readreview").href = "read_review.html?collection="+ collection +"?id=" + doc.data().video_ID;
+                    testVideoCard.getElementById("readreview").href = "read-review.html?collection="+ collection +"?id=" + doc.data().video_ID;
                     for(let i = 0; i < videoScore; i++) {
                         testVideoCard.getElementById('star-group').children[i].setAttribute("class", "fa fa-star checked");
                     }
