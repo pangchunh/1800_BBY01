@@ -1,4 +1,4 @@
-## Serenity
+## Serenity - Your meditation application
 
 - [General info](#general-info)
 - [Technologies](#technologies)
