@@ -1,3 +1,5 @@
+
+// Say hello to the user by displaying their name
 function sayHello() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
@@ -18,6 +20,7 @@ function sayHello() {
 }
 //sayHello();
 
+// Insert the name of the user by getting their name in the user collection in firestore.
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {
       // Check if user is signed in:
@@ -48,7 +51,7 @@ function insertName() {
   }
   insertName();
 
-//
+// Display all videos using a for each loop and append it in the content selection page.
 function displayVideos() {
     cleanData();
     let videoCardTemplate = document.getElementById("videoCardTemplate");
@@ -64,7 +67,6 @@ function displayVideos() {
                 let videoThumbnail = "http://img.youtube.com/vi/" + videoId + "/maxresdefault.jpg";
                 let videoLength = doc.data().length;
                 let videoScore = doc.data().score;
-                let videoReview = doc.data().review
                 let collection = "review"
                 let testVideoCard = videoCardTemplate.content.cloneNode(true);
                 testVideoCard.querySelector('h5').innerHTML = videoTitle;
@@ -83,10 +85,6 @@ function displayVideos() {
 
                 testVideoCard.getElementById("go").onclick = function setVideoId() {
                 localStorage.setItem ('videoID', doc.data().video_ID);
-
-
-
-
                 }
                 document.getElementById("contentHere").appendChild(testVideoCard);
             } else {
@@ -96,9 +94,7 @@ function displayVideos() {
     })
 }
 
-
-
-
+    // Getting details of the video from the Video collection and display them in the relevant element.
     function insertContent() {
         let videoId = localStorage.getItem("videoID");
         db.collection("Videos").where("video_ID", "==", videoId).get()
@@ -123,35 +119,13 @@ function displayVideos() {
         })
     }
 
-    //insertContent();
 
-    /*
-    function(doc) {
-        if (doc.exists) {
-            console.log(doc.data());
-            let videoTitle =doc.data().title;
-            let videoDetails = doc.data().details;
-            let videoId = "https://www.youtube.com/embed/" + doc.data().video_ID;
-
-            document.getElementById("videoTitleHere").innerHTML = videoTitle;
-            document.getElementById("detailsHere").innerHTML = videoDetails;
-            document.getElementById("contentExercise").src = videoId;
-            //console.log(videoTitle);
-            //console.log(videoDetails);
-            //console.log(videoId);
-
-        } else {
-            console.log("No such document!");
-        }
-
-    }
-    */
-
+    // Generate a random video by getting a random number and display it inside the relevant element.
     function randomVideo() {
         db.collection("Videos").get().then(doc => {
         size = doc.size;
         Videos = doc.docs;
-        n = Math.floor(Math.random() * 17);
+        let n = Math.floor(Math.random() * (size + 1));
         randomVid = Videos[n].data();
         let score = randomVid.score;
         for(let index = 0; index < 5; index++) {
@@ -169,6 +143,7 @@ function displayVideos() {
     })
     }
 
+    // Clean every child under an element.
     function cleanData() {
         let element = document.getElementById("contentHere");
         while (element.firstChild) {
@@ -176,6 +151,9 @@ function displayVideos() {
     }
     }
 
+
+    // Clean the current area of showing video cards and display
+    // videos that matches the length in the parameter.
     function filter(x) {
         cleanData();
     db.collection("Videos").where("length", "==", x).get()
@@ -243,6 +221,9 @@ function displayVideos() {
         });
     }
 
+    // Display the review based on the video id get on the previous page and
+    // calculate the average score of the video by getting all review score of that video
+    // and updating it in the Video collection.
     function displayReview() {
     let reviewCardTemplate = document.getElementById("reviewCardTemplate");
     let reviewCardGroup = document.getElementById("reviewCardGroup");
@@ -276,7 +257,6 @@ function displayVideos() {
 
                         })
                     })
-
                 })
                 let testReviewCard = reviewCardTemplate.content.cloneNode(true);
                 testReviewCard.querySelector('.card-header').innerHTML = reviewTitle;
@@ -289,7 +269,6 @@ function displayVideos() {
                 }
                 localStorage.setItem('videoID', videoid);
 
-
                 //testVideoCard.getElementById('thumbnail').src = videoThumbnail;
                 //testVideoCard.querySelector('a').onclick = function setVideoId() {
                 //localStorage.setItem ('videoID', doc.data().video_ID);
@@ -298,8 +277,6 @@ function displayVideos() {
             } else {
                 console.log("No such document!");
             }
-
-
         })
     })
 }

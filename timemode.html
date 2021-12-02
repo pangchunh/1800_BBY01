@@ -112,12 +112,11 @@
         </div>
       </section>
 
-      <!-- actual content selection -->
       <div class="album py-3">
-
 
         <div class="container">
           <div class="d-grid mx-auto">
+            <!-- The filter buttons -->
             <h3 class="text-center">Please choose the duration</h3>
             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
               <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
@@ -139,7 +138,7 @@
           </div>
           <br /><br />
 
-
+          <!-- The template of all video card-->
           <template id="videoCardTemplate">
             <div class="col">
               <div class="card shadow-sm gradient">
@@ -176,7 +175,7 @@
 
 
           <div class="card-deck">
-
+  <!--Actual content is here -->
             <div id="videoCardGroup">
               <div id="contentHere" class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-3 g-3"></div>
             </div>

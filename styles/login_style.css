@@ -8,12 +8,9 @@ body{
     background-image: linear-gradient(315deg, #bbf0f3 0%, #f6d285 74%);
 }
 
-
 .container {
     height: 100%;
 }
-
-
 
 .center {
     display:block;
@@ -23,7 +20,6 @@ body{
     background-color: rgba(0,0,0,.5); 
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .centered {

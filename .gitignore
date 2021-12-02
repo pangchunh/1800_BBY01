@@ -1,8 +1,7 @@
 # this is a file that mac computers produce, not needed for others on the team
 .DS_Store
-firebase_api_carly.js
 boostrap.css
 bookpost.html
 login.html
 firebaseAPI_team01.js
-
+complete.html
