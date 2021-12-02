@@ -1,4 +1,4 @@
-## My Web Application (Title)
+## Serenity
 
 - [General info](#general-info)
 - [Technologies](#technologies)
