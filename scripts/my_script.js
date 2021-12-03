@@ -1,24 +1,4 @@
 
-// Say hello to the user by displaying their name
-function sayHello() {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (user) {
-            // User is signed in.
-            // Do something for the user here.
-            db.collection("users").doc(user.uid)
-                .get()
-                .then(function (doc) {
-                    var n = doc.data().name;
-                    //$("#username").text(n);
-                    document.getElementById("username").innerText = n;
-                    document.getElementById("navDisplay").innerText = n;
-                })
-        } else {
-            // No user is signed in.
-        }
-    });
-}
-//sayHello();
 
 // Insert the name of the user by getting their name in the user collection in firestore.
 function insertName() {
@@ -51,7 +31,7 @@ function insertName() {
   }
   insertName();
 
-// Display all videos using a for each loop and append it in the content selection page.
+// Display all videos from the "Video" collection from firestore using a for each loop and append it in the content selection page.
 function displayVideos() {
     cleanData();
     let videoCardTemplate = document.getElementById("videoCardTemplate");
@@ -94,7 +74,7 @@ function displayVideos() {
     })
 }
 
-    // Getting details of the video from the Video collection and display them in the relevant element.
+    // Getting details of the video from the "Video" collection from firestore and display them in the relevant element.
     function insertContent() {
         let videoId = localStorage.getItem("videoID");
         db.collection("Videos").where("video_ID", "==", videoId).get()
@@ -110,6 +90,7 @@ function displayVideos() {
             document.getElementById("videoTitleHere").innerHTML = videoTitle;
             document.getElementById("detailsHere").innerHTML = videoDetails;
             document.getElementById("contentExercise").src = videoId;
+            document.getElementsByTagName("title")[0].innerHTML = videoTitle;
         } else {
             console.log("Query has more than one data")
         }
@@ -120,7 +101,7 @@ function displayVideos() {
     }
 
 
-    // Generate a random video by getting a random number and display it inside the relevant element.
+    // Getting and reading an array of videos from the "Video" collection and get a random video by generating a random number and display it inside the relevant element.
     function randomVideo() {
         db.collection("Videos").get().then(doc => {
         size = doc.size;
@@ -153,10 +134,10 @@ function displayVideos() {
 
 
     // Clean the current area of showing video cards and display
-    // videos that matches the length in the parameter.
-    function filter(x) {
+    // videos that matches the length of the video from the "Video" collection from firestore and in the parameter.
+    function filter(vidtime) {
         cleanData();
-    db.collection("Videos").where("length", "==", x).get()
+    db.collection("Videos").where("length", "==", vidtime).get()
         .then(filterVideo => {
             filterVideo.forEach(doc => {
                 if (doc.exists) {
@@ -195,7 +176,7 @@ function displayVideos() {
         })
     }
 
-    // checks if the user if they exists and runs in most pages
+    // checks if the user exists under our "user" collection and runs in most of our pages
     function checkUser() {
         firebase.auth().onAuthStateChanged(user => {
             // checks if the user exists
@@ -221,9 +202,9 @@ function displayVideos() {
         });
     }
 
-    // Display the review based on the video id get on the previous page and
+    // Display the review by querying the video id from the "review" collection on firestore based on the video id get on the previous page and
     // calculate the average score of the video by getting all review score of that video
-    // and updating it in the Video collection.
+    // and updating it in the "Video" collection.
     function displayReview() {
     let reviewCardTemplate = document.getElementById("reviewCardTemplate");
     let reviewCardGroup = document.getElementById("reviewCardGroup");
@@ -246,7 +227,7 @@ function displayVideos() {
                 overallScore += score;
                 averageScore = overallScore / allReviews.size;
 
-                // Update average score of the video to firestore when displaying the reviews from user
+                // Update average score of the video in the "video" collection of firestore when displaying the reviews from user
                 db.collection("Videos").where("video_ID", "==", videoid).get().then(query => {
                     query.forEach(vid => {
                         vidTitle = vid.data().title;
@@ -254,7 +235,6 @@ function displayVideos() {
                         let vidDoc = vid.id
                         db.collection("Videos").doc(vidDoc).update({
                             score: averageScore
-
                         })
                     })
                 })

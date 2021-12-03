@@ -13,45 +13,35 @@
   <!-- Boostrap JS CDN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- Firebase 8 related CSS CDN -->
-
   <!-- Firebase 8 related JS CDN -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
-  
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/2e05f14c55.js" crossorigin="anonymous"></script>
   <link href="./styles/my_style.css" rel="stylesheet">
 
-  <style>
-
-  </style>
 </head>
 
 <body>
   <!-- Container -->
   <div class="container-sm">
 
-      <!-- Container -->
-      <div class="container-sm">
-
-      
-      
-      
     <!-- Bottom Navbar -->
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
       <div class="offcanvas-header bg-dark">
-        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas"
+          aria-label="Close"></button>
       </div>
-      <div class="text-center bg-dark"><h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
+      <div class="text-center bg-dark">
+        <h5 id="offcanvasTopLabel" class="text-warning h1 appName bg-dark">Serenity</h5>
       </div>
       <div class="offcanvas-body bg-dark text-light">
         <div class="text-center bg-dark">
-        Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
-      </div>
-      <br/>
+          Hello <span id="navDisplay5" class="text-warning"></span>, are you feeling good today??
+        </div>
+        <br />
         <div class="row align-items-start">
           <div class="col align-self-center">
             <a class="text-light" href="./index.html">
@@ -66,7 +56,7 @@
               </a>
             </span>
           </div>
-      </div>
+        </div>
       </div>
     </div>
 
@@ -84,17 +74,15 @@
         <a class="navbar-brand" href="./record.html">
           <i class="fas fa-chart-bar"></i>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasTop" aria-controls="offcanvas-top"
-          aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
+          aria-controls="offcanvas-top" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
       </div>
     </nav>
-
     <!-- Navbar end -->
-    
+
     <!-- title -->
 
     <section class="py-2 text-center container">
@@ -113,53 +101,50 @@
       </div>
     </section>
 
-    <!-- Conent -->
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
-          <div class="col">
-            <div class="card shadow-sm bg-info border border-light rounded">
-              <img class="bd-placeholder-img card-img-top" style="width:100%; height:80%" src="./images/random.png">
-              <div class="card-body bg-info">
-                <h5 class="text-light">What's your random exercise about?</h5>
-                <small class="text-muted">Duration: </small><small class="text-muted" id="videoLength">9 mins</small>
-                <p class="card-text" id="randomDescription">description</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <a href="" id="gameModereview">Rate and review</a>
-                  <span id="star-gp">
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </span>
-                </div>
-                <br/>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                <a href="./content.html" class="btn btn-warning">Go</a>
-                </div>
-                
-              </div>
-
+    <!-- Content -->
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1">
+      <div class="col">
+        <div class="card shadow-sm bg-info border border-light rounded">
+          <img class="bd-placeholder-img card-img-top" style="width:100%; height:80%" src="./images/random.png">
+          <div class="card-body bg-info">
+            <h5 class="text-light">What's your random exercise about?</h5>
+            <small class="text-muted">Duration: </small><small class="text-muted" id="videoLength">9 mins</small>
+            <p class="card-text" id="randomDescription">description</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <a href="" id="gameModereview">Rate and review</a>
+              <span id="star-gp">
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </span>
             </div>
-            <br/>
-            <div class="d-grid gap-2 col-6 mx-auto" >
-            <button type="button" class="btn gradient" onclick="randomVideo()">Refresh <i class="fas fa-sync-alt h4"></i></button>
+            <br />
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <a href="./content.html" class="btn btn-warning">Go</a>
             </div>
           </div>
         </div>
+        <br />
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="button" class="btn gradient" onclick="randomVideo()">Refresh <i
+              class="fas fa-sync-alt h4"></i></button>
+        </div>
       </div>
-      </div>
-      
-      <!-- Link to the api keys for your Firebase project -->
-      <script src="./scripts/firebaseAPI_team01.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-      <script src="scripts/my_script.js"></script>
-      <script>
-        randomVideo();
-        checkUser();
+    </div>
+  </div>
 
-      </script>
+  <!-- Link to the api keys for your Firebase project -->
+  <script src="./scripts/firebaseAPI_team01.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="scripts/my_script.js"></script>
+  <script>
+    randomVideo();
+    checkUser();
+  </script>
 
 
 </body>
