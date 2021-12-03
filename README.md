@@ -29,7 +29,7 @@ Content of the project folder:
 ├── index.html               # landing HTML file, this is what users see when you come to url
 ├── main.html                # HTML file, this is what users go after they login
 ├── timemode.html            # The time mode where user select meditation based on the length of exercise 
-├── gamemode.html             # The fun mode where user will be given a random exercise
+├── gamemode.html            # The fun mode where user will be given a random exercise
 ├── read-review.html         # The page where user can read review of a particular exercise
 ├── content.html             # The actual content page which displayed the content of the exercise
 ├── user.html                # The user profile page
